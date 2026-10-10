@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build UrbanAI Project",
+            "type": "shell",
+            "command": "javac",
+            "args": [
+                "-encoding", "UTF-8",
+                "-d", "bin",
+                "Main.java",
+                "model/*.java",
+                "data/*.java",
+                "module1/*.java",
+                "module2/*.java",
+                "module3/*.java",
+                "module4/*.java",
+                "module6/*.java"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "reveal": "always", "panel": "shared" },
+            "problemMatcher": "$javac"
+        },
+        {
+            "label": "Run UrbanAI Project",
+            "type": "shell",
+            "command": "java",
+            "args": ["-Dfile.encoding=UTF-8", "-cp", "bin", "Main"],
+            "dependsOn": ["Build UrbanAI Project"],
+            "presentation": { "reveal": "always", "panel": "shared" }
+        }
+    ]
+}
